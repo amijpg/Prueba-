@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <!--Busque su emoji en https://www.w3schools.com/html/html_emojis.asp-->
+        <title> 📝 Evaluación N°1 </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <section>
+                <p> 
+                    <a href="index.html">Bienvenido</a> 
+                    <a href="page-1.html"class="activo"> Caleidoscopio</a> 
+                    <a href="page-2.html">Condiciones</a>
+                    <a href="page-3.html"class="activo">Poema Aleatorio</a>
+                    <a href="page-4.html">Orbit Control</a>
+                </p>
+            </section>
+            <h1>Poema Aleatorio</h1>
+            <h2></h2>
+
+            <!-- <p> 
+            <code>mouseDragged()</code>
+            </p>  -->   
+
+        </header>
+        <main>
+        </main>
+        <aside>
+            <button onclick="foto()"> Foto </button>
+        </aside>
+        <script>
+        
+            function setup() {
+                createCanvas(windowWidth, windowHeight);
+                background('#42A5F5');
+                stroke('#90CAF9');
+                titular = select('h1');
+                titular.html(random(saludo.arriba));
+                titular = select('h2');
+                titular .html(random(saludo.abajo));
+                describe($(symmetry));
+                angleMode(DEGREES);
+                
+            }
+            let words = ['manzana','cielo','río','montaña','libro','océano','sol','bosque','ciudad','susurro','sueño','viaje','galaxia','estrella','mariposa','nube','arena','flor','lluvia','camino','luz','noche','silencio','fuego',,'montaña','puente','corazón','tierra','risa','desierto','agua','ventana','sombras'];
+
+
+            let wordCount = 15;
+            let position;
+            let hue;
+
+            function setup() {
+                describe(
+                    'A random series of words related to p5.js scattered onto the canvas.'
+                );
+
+                textFont('Space Grotesk');
+
+                createCanvas(windowWidth, windowHeight);
+                textAlign(CENTER);
+                colorMode(HSB);
+                hue = random(180, 360);
+                position = floor(random(0, words.length - wordCount))
+                background('#42A5F5');
+                for (let i = 0; i < 20; i++) {
+                    textSize(random(24, 54));
+                    fill(hue, 200, random(50, 95));
+                    text(random(words), random(width), random(height));
+                }
+            }
+            function foto(){
+                saveCanvas('Poema Aleatorio.jpg');
+            }
+
+        </script>
+    </body>
+</html>
